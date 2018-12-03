@@ -7,6 +7,10 @@ class Login extends Controller
 {
     public function index()
     {
+        $array['name'] = 'thinkphp';
+        $array['email'] = 'liu21st@gmail.com';
+        $array['phone'] = '12335678';
+        $this->assign($array);
     	return $this->fetch();
     }
       // 处理登录逻辑

@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<script language="JavaScript" src="/static/jquery-3.3.1/jquery-3.3.1.js"></script>
 <html>
 
 <!-- Head -->
@@ -13,12 +15,13 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //For-Mobile-Apps -->
 
-<!-- Style --> <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<!-- Style --> <link rel="stylesheet" href="/static/moban/css/style.css" type="text/css" media="all" />
 
 <!-- Web-Fonts -->
 <link href='http://fonts.useso.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Raleway:100,200' rel='stylesheet' type='text/css'>
+<link href='/static/moban/'>
 <!-- //Web-Fonts -->
 
 </head>
@@ -69,7 +72,7 @@
 						</div>
 					</div>
 					<div class="temperature">
-						<p>23<span>C</span></p>
+						<p>20°<span>C</span></p>
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -81,7 +84,7 @@
 			<!-- Forecast -->
 			<div class="forecast">
 				<div class="forecast-icon">
-					<img src="images/forecast.png" alt="New York Weather Widget">
+					<img src="/static/moban/images/forecast.png" alt="New York Weather Widget">
 				</div>
 				<div class="today-weather">
 					<h3>Cloudy</h3>
@@ -114,6 +117,11 @@
 	</div>
 	<!-- //Footer -->
 
+	<div>
+            <span>NAME:</span><input type="text" id="name"/><br /><br/>
+            <span>ADDRESS:</span><input type="text" name="address" onblur="change()" />
+    </div>
+
 
 
 	<!-- Custom-JavaScript-Files -->
@@ -139,6 +147,28 @@
 		<!-- //Time-JavaScript -->
 
 	<!-- //Custom-JavaScript-File-Links -->
+		<script type="text/javascript">
+            function change(item) {
+                var txt1 = $("#name").val();
+                var txt2 = $("input[name=address]").val();
+                $.ajax({
+                    type: 'post',
+                    url: 'http://154.8.162.46/index.php/weixin/Ajax/read',
+                    data: {name: txt1, address: txt2},
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.status == 0) {
+                            alert(data.msg);
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function () {
+                        alert("程序异常");
+                    }
+                });
+            }
+        </script>
 
 </body>
 </html>

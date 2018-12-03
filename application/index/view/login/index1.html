@@ -4,20 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录系统</title> 
-    <!-- meta使用viewport以确保页面可自由缩放 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- 引入 jQuery Mobile 样式 -->
-    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
-
-    <!-- 引入 jQuery 库 -->
-    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
-
-    <!-- 引入 jQuery Mobile 库 -->
-    <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
- 
  
 <body class="gray-bg">
 <div class="container">
@@ -58,13 +46,6 @@
 	    </div>
 	</div>
 </div> 
-<select class="combobox">
-  <option value="PA">Pennsylvania</option>
-  <option value="CT">Connecticut</option>
-  <option value="NY">New York</option>
-  <option value="MD">Maryland</option>
-  <option value="VA">Virginia</option>
-</select>
 
 <div id="page-wrapper">
     <div id="page-inner">
@@ -80,7 +61,7 @@
                 <label for="sourceModule" class="col-sm-2 control-label">分类选择:</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="projectType" name="projectType">
-                        <option value=""> - 分类1 -</option>
+                        <option value=""> - 分类 -</option>
                         <option value="shitang">食堂 </option>
                         <option value="sushe">宿舍 </option>
                         <option value="jiaowu">教务 </option>
@@ -101,24 +82,8 @@
 </div>
 
 
-    <form method="post" action="demoform.php">
-       <div class="ui-field-contain">
-        <label for="info">问题描述:</label>
-        <textarea name="addinfo" id="info"></textarea>
-      </div>
-      <input type="submit" data-inline="true" value="提交">
-    </form> 
-
-
-
-
 <script src="/static/js/jquery.min.js?v=2.1.4"></script>
 <script src="/static/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.combobox').combobox();
-  });
-</script>
 <script type="text/javascript">
     $(document).ready(function () {
     	//绑定分类下拉框选项变化事件
